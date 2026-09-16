@@ -3,265 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LineMap — Real-time Compatibility. Capacity. In Real Time.</title>
 <meta name="description" content="LineMap is real-time IV compatibility and capacity intelligence for clinical teams. Reduce risk. Increase clarity.">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&family=DM+Mono&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --navy-deep:#060c1a;
-  --navy-mid:#0f1c35;
-  --navy-light:#162040;
-  --gold:#c9a84c;
-  --white:#f4f1eb;
-  --teal:#4fd1c5;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  background:var(--navy-deep);
-  color:var(--white);
-  font-family:'DM Sans',sans-serif;
-  line-height:1.6;
-}
-
-/* NAV */
-nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(6,12,26,0.85);
-  backdrop-filter:blur(10px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 40px;
-  z-index:1000;
-}
-
-nav img{
-  height:32px;
-}
-
-nav a{
-  color:var(--white);
-  text-decoration:none;
-  margin-left:20px;
-  font-size:14px;
-  opacity:.7;
-}
-
-nav a:hover{opacity:1}
-
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:0 10%;
-}
-
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:3.5rem;
-  margin-bottom:20px;
-}
-
-.hero p{
-  opacity:.7;
-  max-width:600px;
-  margin-bottom:30px;
-}
-
-.btn{
-  display:inline-block;
-  background:var(--teal);
-  color:#000;
-  padding:14px 24px;
-  border-radius:6px;
-  font-weight:500;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 20px rgba(79,209,197,0.3);
-}
-
-/* SECTION */
-section{
-  padding:100px 10%;
-}
-
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:40px;
-}
-
-.stat{
-  font-size:1.2rem;
-  opacity:.8;
-}
-
-/* HOW IT WORKS + MOCKUPS */
-.mockup-container{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:40px;
-}
-
-.device{
-  width:280px;
-  border-radius:28px;
-  padding:12px;
-  background:var(--navy-light);
-  box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.05),
-    0 20px 40px rgba(0,0,0,0.5);
-  transition:.3s;
-}
-
-.device:hover{
-  transform:translateY(-6px);
-  box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.08),
-    0 30px 60px rgba(0,0,0,0.7),
-    0 0 30px rgba(79,209,197,0.15);
-}
-
-.device img{
-  width:100%;
-  border-radius:20px;
-  display:block;
-}
-
-/* FORM */
-form{
-  max-width:500px;
-  margin-top:30px;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border:none;
-  border-radius:6px;
-}
-
-.success{
-  display:none;
-  color:var(--teal);
-  margin-top:20px;
-}
-
-/* FOOTER */
-footer{
-  padding:40px 10%;
-  opacity:.5;
-  font-size:14px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero h1{font-size:2.2rem}
-}
-</style>
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; manifest-src 'self'; worker-src 'none'">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
 </head>
-
 <body>
-
-<nav>
+<nav aria-label="Primary navigation">
   <img src="logo.svg" alt="PRISMqd logo">
   <div>
     <a href="#how">Product</a>
-    <a href="#contact">Apply</a>
+    <a href="#contact">Pilot access</a>
   </div>
 </nav>
 
-<section class="hero">
-  <h1>Know the limits. Not just the lines.</h1>
-  <p>Compatibility. Capacity. In real time. Built for the moment decisions actually happen.</p>
-  <a href="#contact" class="btn">Apply for Pilot Access</a>
-</section>
+<main>
+  <section class="hero">
+    <h1>Know the limits. Not just the lines.</h1>
+    <p>Compatibility. Capacity. In real time. Built for the moment decisions actually happen.</p>
+    <a href="#contact" class="btn">Pilot Access</a>
+  </section>
 
-<section>
-  <div class="stats">
-    <div class="stat">
-      IV medications are disproportionately associated with high-harm medication errors.
+  <section aria-label="Clinical context">
+    <div class="stats">
+      <div class="stat">IV medications are disproportionately associated with high-harm medication errors.</div>
+      <div class="stat">Rapid onset and complexity increase severity compared to other routes.</div>
+      <div class="stat">Many events remain underreported — the real burden is higher.</div>
     </div>
-    <div class="stat">
-      Rapid onset and complexity increase severity compared to other routes.
+  </section>
+
+  <section id="how">
+    <h2>The system didn’t fail. It never existed.</h2>
+    <p>Until now.</p>
+    <div class="mockup-container">
+      <div class="device"><img src="LMmockup1.PNG" alt="Lumen Planner"></div>
+      <div class="device"><img src="LMmockupdash.PNG" alt="Patient Access Board"></div>
     </div>
-    <div class="stat">
-      Many events remain underreported — the real burden is higher.
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="how">
-  <h2>The system didn’t fail. It never existed.</h2>
-  <p>Until now.</p>
+  <section>
+    <h2>Built from real clinical experience</h2>
+    <p>10 years critical care · 20+ years healthcare</p>
+  </section>
 
-  <div class="mockup-container">
-    <div class="device">
-      <img src="LMmockup1.PNG" alt="Lumen Planner">
-    </div>
-    <div class="device">
-      <img src="LMmockupdash.PNG" alt="Patient Access Board">
-    </div>
-  </div>
-</section>
+  <section id="contact">
+    <h2>Pilot Access</h2>
+    <p>Interest intake is intentionally disabled on this non-production build while the collection destination and privacy controls are under review.</p>
+    <form id="pilot-form" class="pilot-panel" autocomplete="off">
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input id="first-name" name="first_name" type="text" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="organization">Organization</label>
+        <input id="organization" name="organization" type="text" autocomplete="off">
+      </div>
+      <button class="btn" type="submit">Check pilot intake status</button>
+      <p class="privacy-note">This build does not transmit or store these fields.</p>
+    </form>
+    <p id="pilot-status" class="status" role="status" tabindex="-1" hidden></p>
+  </section>
+</main>
 
-<section>
-  <h2>Built from real clinical experience</h2>
-  <p>10 years critical care · 20+ years healthcare</p>
-</section>
-
-<section id="contact">
-  <h2>Apply for Pilot Access</h2>
-  <form id="form">
-    <input type="text" placeholder="First Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="text" placeholder="Organization">
-    <button class="btn">Apply</button>
-  </form>
-  <div class="success">Application received. We'll be in touch.</div>
-</section>
-
-<footer>
-  © PRISMqd — LineMap
-</footer>
-
-<script>
-document.getElementById("form").addEventListener("submit", async function(e){
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  try{
-    await fetch("https://formspree.io/f/xbdpglvo",{
-      method:"POST",
-      body:formData,
-      headers:{'Accept':'application/json'}
-    });
-
-    this.style.display="none";
-    document.querySelector(".success").style.display="block";
-  }catch(err){
-    alert("Submission failed.");
-  }
-});
-</script>
-
+<footer>© PRISMqd — LineMap</footer>
 </body>
 </html>
