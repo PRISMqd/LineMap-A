@@ -1,0 +1,46 @@
+name: Release Preflight
+
+on:
+  pull_request:
+  push:
+    branches:
+      - factory/linemap-a-release-hardening-20260916
+
+permissions:
+  contents: read
+
+jobs:
+  release-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Assert candidate identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "candidate=${GITHUB_SHA}"
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+
+      - name: Deterministic release preflight
+        run: node tests/release-preflight.mjs
+
+      - name: Local static HTTP smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 >/tmp/linemap-a-http.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" || true' EXIT
+          for _ in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/index.html >/tmp/index.html; then break; fi
+            sleep 0.25
+          done
+          curl --fail --silent http://127.0.0.1:4173/styles.css >/tmp/styles.css
+          curl --fail --silent http://127.0.0.1:4173/app.js >/tmp/app.js
+          grep -q 'Content-Security-Policy' /tmp/index.html
+          grep -q 'No information was sent or stored' /tmp/app.js
