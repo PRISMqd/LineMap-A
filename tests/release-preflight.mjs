@@ -13,7 +13,7 @@ requireMatch(/<link[^>]+rel=["']stylesheet["'][^>]+href=["']styles\.css["']/i.te
 requireMatch(/<script[^>]+src=["']app\.js["'][^>]+defer/i.test(html), 'same-origin deferred app.js must be loaded');
 requireMatch(/name=["']referrer["'][^>]+content=["']no-referrer["']/i.test(html), 'no-referrer policy is required');
 
-const csp = html.match(/http-equiv=["']Content-Security-Policy["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? '';
+const csp = html.match(/http-equiv="Content-Security-Policy"[^>]+content="([^"]+)"/i)?.[1] ?? '';
 for (const directive of [
   "default-src 'self'",
   "base-uri 'self'",
